@@ -6,13 +6,14 @@ export default class SearchForm extends Component {
     searchText: ''
   }
   
-  onSearchChange = e => {
-    this.setState({ searchText: e.target.value })
+  onSearchChange = event => {
+    this.setState({ searchText: event.target.value })
   }
   
-  handleSubmit = e => {
-    e.preventDefault()
-    e.currentTarget.reset()
+  handleSubmit = event => {
+    event.preventDefault()
+    this.props.onSearch(this.query.value)
+    event.currentTarget.reset()
   }
   
   render() {  
@@ -22,6 +23,7 @@ export default class SearchForm extends Component {
         <input type="search" 
                onChange={this.onSearchChange}
                name="search" 
+               ref={input => this.query = input}
                placeholder="Search..." />
         <button type="submit" id="submit" className="search-button"><i className="material-icons icn-search">search</i></button>
       </form>      
