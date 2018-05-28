@@ -60,5 +60,3 @@ export default class App extends Component {
     )
   }
 }
-
-// api-key: 5PuvRRBmgzsRm0qVpBShqkGZLHbBDgBS
